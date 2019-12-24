@@ -10,6 +10,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/WilliamRagstad/ArgumentsUtil/master/LICENSE</PackageLicenseUrl>
     <Version>1.0.1</Version>
     <RepositoryUrl>https://www.nuget.org/packages/ArgumentsUtil</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 </Project>
