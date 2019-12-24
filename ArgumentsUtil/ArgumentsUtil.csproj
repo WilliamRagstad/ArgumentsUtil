@@ -6,6 +6,8 @@
     <Authors>Dotch</Authors>
     <Company />
     <Description>A library built for simple and accessible command line argument parsing.</Description>
+    <PackageProjectUrl>https://github.com/WilliamRagstad/ArgumentsUtil</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/WilliamRagstad/ArgumentsUtil/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
 </Project>
