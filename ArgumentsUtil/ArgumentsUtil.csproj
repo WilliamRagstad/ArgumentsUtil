@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Dotch</Authors>
+    <Company />
+    <Description>A library built for simple and accessible command line argument parsing.</Description>
   </PropertyGroup>
 
 </Project>
