@@ -5,45 +5,54 @@ namespace ArgumentsUtil
 {
     public struct Arguments
     {
-        public static Arguments Parse(string[] args, char keySelector = '/')
+        public enum KeySelector : short
+        {
+            CrossPlatformCompatible = 0
+        }
+        public static Arguments Parse(string[] args, char keySelector = (char)KeySelector.CrossPlatformCompatible)
         {
             Arguments arguments = new Arguments();
             arguments._dictionary = new Dictionary<string, List<string>>();
-            arguments.KeylessArguments = new List<string>();
+            arguments.Keyless = new List<string>();
             bool isKeyless = true;
             for(int i = 0; i < args.Length; i++)
             {
-                if (args[i].Length > 0 && args[i][0] == keySelector)
-                {
-                    isKeyless = false;
-                    string key = args[i].Replace(keySelector.ToString(), "");
-                    List<string> values = new List<string>();
-                    while(i < args.Length - 1)
+                if (args[i].Length > 0) {
+                    char s = args[i][0]; // Selector
+                    if (keySelector == (char)KeySelector.CrossPlatformCompatible && (s == '/' || s == '-') ||
+                        s == keySelector)
                     {
-                        i++;
-                        if (args[i][0] == keySelector)
+                        isKeyless = false;
+                        string key = args[i].Remove(0, 1);
+                        List<string> values = new List<string>();
+                        while (i < args.Length - 1)
                         {
-                            // continue with next key argument
-                            i--;
-                            break;
+                            i++;
+                            if (s == keySelector)
+                            {
+                                // continue with next key argument
+                                i--;
+                                break;
+                            }
+                            else
+                            {
+                                values.Add(args[i]);
+                            }
                         }
-                        else
-                        {
-                            values.Add(args[i]);
-                        }
+                        if (!arguments._dictionary.ContainsKey(key)) arguments._dictionary.Add(key, values);
                     }
-                    if (!arguments._dictionary.ContainsKey(key)) arguments._dictionary.Add(key, values);
                 }
-                else if (isKeyless)
+
+                if (isKeyless)
                 {
-                    arguments.KeylessArguments.Add(args[i]);
+                    arguments.Keyless.Add(args[i]);
                 }
             }
 
             return arguments;
         }
 
-        public List<string> KeylessArguments;
+        public List<string> Keyless;
         private Dictionary<string, List<string>> _dictionary;
         
         public string[] this[string key]
@@ -62,11 +71,11 @@ namespace ArgumentsUtil
         {
             get
             {
-                return KeylessArguments[key];
+                return Keyless[key];
             }
         }
 
-        public int Length => KeylessArguments.Count + _dictionary.Count;
+        public int Length => Keyless.Count + _dictionary.Count;
         public bool ContainsKey(string key) => _dictionary.ContainsKey(key);
 
         public bool ContainsPattern(string key, params Type[] types)

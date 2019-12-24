@@ -5,9 +5,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dotch</Authors>
     <Company />
-    <Description>A library built for simple and accessible command line argument parsing.</Description>
+    <Description>A library built for simple and accessible command line argument parsing and validation.</Description>
     <PackageProjectUrl>https://github.com/WilliamRagstad/ArgumentsUtil</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/WilliamRagstad/ArgumentsUtil/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.1</Version>
+    <RepositoryUrl>https://www.nuget.org/packages/ArgumentsUtil</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
