@@ -5,10 +5,6 @@ namespace ArgumentsUtil
 {
     public struct Arguments
     {
-        public enum KeySelector : short
-        {
-            CrossPlatformCompatible = 0
-        }
         public static Arguments Parse(string[] args, char keySelector = (char)KeySelector.CrossPlatformCompatible)
         {
             Arguments arguments = new Arguments();
