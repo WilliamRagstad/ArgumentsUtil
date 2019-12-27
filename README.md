@@ -29,7 +29,7 @@ namespace ConsoleAppTesting
         {
             Arguments a = Arguments.Parse(args);
 
-            ArgumentsTemplate at = new ArgumentsTemplate( // This will 
+            ArgumentsTemplate at = new ArgumentsTemplate( // This will setup the general structure of our manual
                 new List<ArgumentOption>
                 {
                     new ArgumentOption("v", "verbose", "Toggle verbose mode.", new List<ArgumentParameter> {
