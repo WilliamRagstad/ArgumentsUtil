@@ -1,24 +1,8 @@
-
-<div align=center>
- <img alt="Nuget" src="https://img.shields.io/nuget/v/ArgumentsUtil">
- <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/WilliamRagstad/ArgumentsUtil">
- <img alt="Nuget" src="https://img.shields.io/nuget/dt/ArgumentsUtil">
-</div>
-
-# ArgumentsUtil
-A .NET Standard library built for simple and accessible command line argument parsing, manual instructions and validation.
-
-# Usage
-
-## Examples
-
-### 1. Static Manual
-
-Source code:
-
-```c#
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ArgumentsUtil;
 
 namespace ConsoleAppTesting
@@ -29,7 +13,7 @@ namespace ConsoleAppTesting
         {
             Arguments a = Arguments.Parse(args);
 
-            ArgumentsTemplate at = new ArgumentsTemplate( // This will 
+            ArgumentsTemplate at = new ArgumentsTemplate(
                 new List<ArgumentOption>
                 {
                     new ArgumentOption("v", "verbose", "Toggle verbose mode.", new List<ArgumentParameter> {
@@ -62,8 +46,3 @@ namespace ConsoleAppTesting
         }
     }
 }
-```
-
-Result:
-
-![Output](example.png)
