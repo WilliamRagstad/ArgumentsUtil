@@ -30,10 +30,25 @@ namespace ArgumentsUtil
                 }
             }
 
+            bool indent = !string.IsNullOrEmpty(Title);
+            string indents = "  ";
+
             for (int i = 0; i < Body.Length; i++)
             {
-                if (!string.IsNullOrEmpty(Title)) Console.Write("  ");
-                Console.WriteLine(Body[i]);
+                if (indent) Console.Write(indents);
+                string[] words = Body[i].Split(' ');
+                for (int j = 0; j < words.Length; j++)
+                {
+                    if (words[j].Length > Console.BufferWidth - Console.CursorLeft)
+                    {
+                        Console.Write(Environment.NewLine);
+                        Console.Write(indents);
+                    }
+
+                    Console.Write(words[j]);
+                    if (j != words.Length - 1) Console.Write(' ');
+                }
+                if (i != Body.Length - 1) Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
     }

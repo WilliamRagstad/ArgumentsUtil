@@ -11,6 +11,8 @@ namespace ConsoleAppTesting
     {
         static void Main(string[] args)
         {
+            args = new[] { "test", "/o", "oooo", "/d", "dddd" };
+
             Arguments a = Arguments.Parse(args);
 
             ArgumentsTemplate at = new ArgumentsTemplate(
@@ -34,7 +36,7 @@ namespace ConsoleAppTesting
                 },
                 true,
                 new List<ArgumentText> {
-                    new ArgumentText("Custom title:", new[] {"This text is completely customizable! And you can write anything you want here, isn't that amazing!!!"})
+                    new ArgumentText("Custom title:", new[] {"This text is customizable! You can write anything you want here and all words will wrap correctly, isn't that amazing!!!", "And is supports multiple paragraphs :D"})
                 },
                 "My Custom Console App",
                 (char)KeySelector.CrossPlatformCompatible

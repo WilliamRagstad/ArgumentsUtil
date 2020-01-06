@@ -24,7 +24,9 @@ namespace ArgumentsUtil
                         while (i < args.Length - 1)
                         {
                             i++;
-                            if (s == keySelector)
+                            s = args[i][0]; // Selector
+                            if (keySelector == (char)KeySelector.CrossPlatformCompatible && (s == '/' || s == '-') ||
+                        s == keySelector)
                             {
                                 // continue with next key argument
                                 i--;
