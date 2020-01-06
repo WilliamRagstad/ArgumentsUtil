@@ -1,5 +1,6 @@
 
 <div align=center>
+ <img alt="ArgumentsUtil" src="logo.png" width="50%">
  <img alt="Nuget" src="https://img.shields.io/nuget/v/ArgumentsUtil">
  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/WilliamRagstad/ArgumentsUtil">
  <img alt="Nuget" src="https://img.shields.io/nuget/dt/ArgumentsUtil">
